@@ -1,22 +1,25 @@
 .App {
-  text-align: center;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 500;
+   margin-bottom: 30px;
+   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+h1 {
+   color: #3f729b;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container-cards {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+   grid-gap: 4rem;
+   justify-content: center;
+   padding-left: 100px;
+   padding-right: 100px;
 }
 
-.App-link {
-  color: #09d3ac;
+@media only screen and (max-width: 1000px) {
+   .container-cards {
+      grid-template-columns: 1fr;
+   }
 }
