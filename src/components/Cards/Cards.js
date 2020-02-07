@@ -7,9 +7,9 @@ const cards = props => {
 		<Card
 			key={index}
 			id={card.id}
-			title={card.title}
 			value={card.value}
 			click={() => props.clicked(index)}
+			show={card.show}
 		/>
 	))
 	return <div className={classes.Cards}>{cardArr}</div>

@@ -1,41 +1,62 @@
 import React, { Component } from 'react'
 import Cards from './components/Cards/Cards'
 import './App.css'
+import axios from 'axios'
 
 class App extends Component {
 	state = {
 		cards: [
 			{
 				id: 't-mcap',
-				title: 'Total market cap',
-				value: `${200} B $`
+				value: 0,
+				show: true
 			},
 			{
 				id: 't-vol',
-				title: '24h volume',
-				value: `${53} B $`
+				value: 0,
+				show: true
 			},
 			{
 				id: 'btc-dom',
-				title: 'Bitcoin dominance',
-				value: `${65} %`
+				value: 0,
+				show: true
 			},
 			{
 				id: 'avg-change',
-				title: 'Average change',
-				value: `${1.35} %`
+				value: 0,
+				show: true
 			},
 			{
 				id: 'vol-change',
-				title: 'Volume change',
-				value: `${5.1} B $%`
+				value: 0,
+				show: true
 			}
 		]
 	}
 
+	componentDidMount() {
+		axios
+			.get('https://api.coinlore.com/api/global/')
+			.then(response => {
+				console.log(response.data[0])
+				const { total_mcap, total_volume, btc_d, mcap_change, volume_change } = response.data[0]
+				const updatedCards = [...this.state.cards]
+				updatedCards[0].value = (total_mcap / 1e9).toFixed(2)
+				updatedCards[1].value = (total_volume / 1e9).toFixed(2)
+				updatedCards[2].value = btc_d
+				updatedCards[3].value = mcap_change
+				updatedCards[4].value = volume_change
+
+				this.setState({ cards: updatedCards })
+			})
+			.catch(err => {
+				console.log(err)
+			})
+	}
+
 	deleteCardHandler = cardIndex => {
 		const cards = [...this.state.cards]
-		cards.splice(cardIndex, 1)
+		cards[cardIndex].show = false
 		this.setState({ cards: cards })
 	}
 

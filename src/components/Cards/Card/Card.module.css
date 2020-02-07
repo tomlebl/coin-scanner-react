@@ -4,12 +4,16 @@
 	justify-content: center;
 	text-align: center;
 	font-weight: 600;
-	border: #1c2331 solid 1px;
+	border: #1c2331 solid 2px;
 	border-radius: 5px;
-	max-width: 500px;
-	min-width: 300px;
+	min-width: 350px;
+	box-sizing: border-box;
 	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	margin-top: 1.5rem;
+}
+
+.noShow {
+	display: none;
 }
 
 h5 {
@@ -20,6 +24,7 @@ h5 {
 	font-size: large;
 	color: white;
 	margin: 0px;
+	background-blend-mode: lighten;
 }
 
 p {
@@ -28,46 +33,46 @@ p {
 	margin-bottom: 10px;
 }
 
-h5.mcap {
+.mcap > h5 {
 	background-color: #13c2c2;
 }
 
-p.mcap {
+.mcap > p {
 	color: #00474f;
 }
 
-h5.vol {
+.vol > h5 {
 	background-color: #1890ff;
 }
 
-p.vol {
+.vol > p {
 	color: #003a8c;
 }
 
-h5.dom {
+.dom > h5 {
 	background-color: #722ed1;
 }
 
-p.dom {
+.dom > p {
 	color: #22075e;
 }
 
-h5.avgChange {
+.avgChange > h5 {
 	background-color: #faad14;
 }
 
-p.avgChange {
+.avgChange > p {
 	color: #874d00;
 }
 
-h5.volChange {
+.volChange > h5 {
 	background-color: #a0d911;
 }
 
-p.volChange {
+.volChange > p {
 	color: #3f6600;
 }
 
-h5.default {
+.default > h5 {
 	color: black;
 }
