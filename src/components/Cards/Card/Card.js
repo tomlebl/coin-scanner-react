@@ -2,11 +2,13 @@ import React from 'react'
 import classes from './Card.module.css'
 
 const card = props => {
+	const { id, value, click } = props
+
 	let cardClass = [classes.card]
 	let title = ''
 	let unit = ''
 
-	switch (props.id) {
+	switch (id) {
 		case 't-mcap':
 			cardClass.push(classes.mcap)
 			title = 'total market cap'
@@ -35,11 +37,10 @@ const card = props => {
 		default:
 			cardClass.push(classes.default)
 	}
-
 	return (
-		<div className={props.show ? cardClass.join(' ') : classes.noShow} onClick={props.click}>
+		<div className={cardClass.join(' ')} onClick={click}>
 			<h5>{title}</h5>
-			<p>{props.value.toString() + unit}</p>
+			<p>{value ? value.toString() + unit : null}</p>
 		</div>
 	)
 }

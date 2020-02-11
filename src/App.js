@@ -8,27 +8,27 @@ class App extends Component {
 		cards: [
 			{
 				id: 't-mcap',
-				value: 0,
+				value: null,
 				show: true
 			},
 			{
 				id: 't-vol',
-				value: 0,
+				value: null,
 				show: true
 			},
 			{
 				id: 'btc-dom',
-				value: 0,
+				value: null,
 				show: true
 			},
 			{
 				id: 'avg-change',
-				value: 0,
+				value: null,
 				show: true
 			},
 			{
 				id: 'vol-change',
-				value: 0,
+				value: null,
 				show: true
 			}
 		]
@@ -38,7 +38,6 @@ class App extends Component {
 		axios
 			.get('https://api.coinlore.com/api/global/')
 			.then(response => {
-				console.log(response.data[0])
 				const { total_mcap, total_volume, btc_d, mcap_change, volume_change } = response.data[0]
 				const updatedCards = [...this.state.cards]
 				updatedCards[0].value = (total_mcap / 1e9).toFixed(2)
