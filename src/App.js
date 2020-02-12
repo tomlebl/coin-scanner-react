@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Cards from './components/Cards/Cards'
 import './App.css'
 import axios from 'axios'
+import { Button } from 'antd'
 
 class App extends Component {
 	state = {
@@ -64,6 +65,9 @@ class App extends Component {
 			<div className='App'>
 				<h1>Coin Scanner</h1>
 				<Cards cardsData={this.state.cards} clicked={this.deleteCardHandler} />
+				<Button type='danger' disabled={false} size='large'>
+					Button
+				</Button>
 			</div>
 		)
 	}

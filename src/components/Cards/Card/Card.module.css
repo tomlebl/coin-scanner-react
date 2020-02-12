@@ -20,16 +20,16 @@ h5 {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	text-transform: uppercase;
-	font-weight: 600;
+	font-weight: 600 !important;
 	font-size: large;
-	color: white;
+
 	margin: 0px;
 }
 
 p {
 	font-size: 1.2rem;
 	font-weight: 600;
-	margin-bottom: 10px;
+	margin: 10px 0px !important;
 }
 
 .mcap > h5 {
