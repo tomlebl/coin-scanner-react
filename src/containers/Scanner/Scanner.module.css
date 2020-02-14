@@ -1,0 +1,23 @@
+.Coin {
+	font-weight: 700;
+}
+
+.Coin img {
+	margin-right: 10px;
+}
+
+.Coin span {
+	color: grey;
+}
+
+.Change {
+	font-weight: 600;
+}
+
+.Red {
+	color: red;
+}
+
+.Green {
+	color: green;
+}

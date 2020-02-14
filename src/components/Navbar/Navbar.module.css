@@ -1,0 +1,16 @@
+.Navbar {
+	display: flex;
+	flex-direction: row;
+	height: 90px;
+	padding-top: 10px !important;
+}
+
+.Navbar img {
+	margin-left: 20px;
+	height: 70px;
+}
+
+.Actions {
+	margin-left: auto;
+	margin-right: 30px;
+}
