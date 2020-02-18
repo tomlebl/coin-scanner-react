@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Layout } from 'antd'
+import { BackTop } from 'antd'
 import classes from './App.module.css'
 
 import Scanner from './containers/Scanner/Scanner'
@@ -18,6 +19,7 @@ class App extends Component {
 					</Header>
 					<Content className={classes.Content}>
 						<Scanner />
+						<BackTop />
 					</Content>
 					<Footer className={classes.Footer}>
 						<Credits />

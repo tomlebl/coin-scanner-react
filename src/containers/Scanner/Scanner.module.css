@@ -10,14 +10,10 @@
 	color: grey;
 }
 
-.Change {
-	font-weight: 600;
+.Search {
+	margin-left: 50px;
 }
 
-.Red {
-	color: red;
-}
-
-.Green {
-	color: green;
+button {
+	margin-left: 10px;
 }
