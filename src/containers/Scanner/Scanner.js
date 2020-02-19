@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import Cards from '../../components/Cards/Cards'
 import SpanChangeDeco from '../../components/SpanChangeDeco/SpanChangeDeco'
 import MarketDataUnit from '../../components/MarketDataUnit/MarketDataUnit'
+// import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 import { Table } from 'antd'
 import { Input } from 'antd'
+import { Modal } from 'antd'
 import axios from '../../axios-coinLore'
 import classes from './Scanner.module.css'
 
@@ -39,7 +41,8 @@ class Scanner extends Component {
 		coinsData: [],
 		tableData: [],
 		tableLoading: true,
-		pageSize: 10
+		pageSize: 10,
+		totalCoins: 100
 	}
 
 	componentDidMount() {
@@ -57,7 +60,7 @@ class Scanner extends Component {
 				this.setState({ cards: updatedCards })
 			})
 			.catch(err => {
-				console.log(err)
+				this.errorHandler(err)
 			})
 
 		axios
@@ -70,7 +73,7 @@ class Scanner extends Component {
 				this.setState({ coinsData: tableData, tableData: tableData, tableLoading: false })
 			})
 			.catch(err => {
-				console.log(err)
+				this.errorHandler(err)
 			})
 	}
 
@@ -87,11 +90,18 @@ class Scanner extends Component {
 				coin.name.toLowerCase().includes(input.toLowerCase()) ||
 				coin.symbol.toLowerCase().includes(input.toLowerCase())
 		)
-		this.setState({ tableData: filteredCoins })
+		this.setState({ tableData: filteredCoins, totalCoins: filteredCoins.length })
 	}
 
 	onShowSizeChange = (_, pageSize) => {
 		this.setState({ pageSize: pageSize })
+	}
+
+	errorHandler = err => {
+		Modal.error({
+			title: 'Error message',
+			content: `${err} ; Likely Bad HTTP request`
+		})
 	}
 
 	render() {
@@ -189,6 +199,7 @@ class Scanner extends Component {
 						pageSize: this.state.pageSize,
 						showSizeChanger: true,
 						pageSizeOptions: ['10', '25', '50', '100'],
+						total: this.state.totalCoins,
 						onShowSizeChange: this.onShowSizeChange
 					}}
 				/>
