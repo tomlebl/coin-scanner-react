@@ -8,6 +8,7 @@
 .Navbar img {
 	margin-left: 20px;
 	height: 70px;
+	cursor: pointer;
 }
 
 .Actions {
